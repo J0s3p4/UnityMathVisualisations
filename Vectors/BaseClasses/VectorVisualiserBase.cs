@@ -6,6 +6,7 @@ public abstract class VectorVisualiserBase : VisualiserBase
     [Header("Settings")]
     public float resultSphereRadius = 0.1f;
     public bool showValue = true;
+    public bool showMagnitude = false;
     public bool showAxisLines = false;
 
     // A helper method any child can call to draw a vector
@@ -43,7 +44,13 @@ public abstract class VectorVisualiserBase : VisualiserBase
 #if UNITY_EDITOR
         Vector3 labelOffset = Vector3.up * 0.2f;
         string label = $"{prefix}\n[{value.x:F2}, {value.y:F2}, {value.z:F2}]";
+        if (showMagnitude)
+        {
+            float magnitude = value.magnitude;
+            label = $"{label}\n|v| = {magnitude:F2}";
+        }
         Handles.Label(position + labelOffset, label);
+
 #endif
     }
 }
