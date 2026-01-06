@@ -1,3 +1,5 @@
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class VectorVisualiser : VisualiserBase
@@ -29,6 +31,9 @@ public class VectorVisualiser : VisualiserBase
         Gizmos.DrawLine(Vector3.zero, displayVector);
         Gizmos.DrawSphere(displayVector, resultSphereRadius);
 
+        #if UNITY_EDITOR
+        DrawVectorLabel(displayVector, displayVector);
+        #endif
 
         // Draw faint axis lines if enabled
         if (showAxisLines)
@@ -48,6 +53,21 @@ public class VectorVisualiser : VisualiserBase
             Gizmos.DrawLine(new Vector3(0f, 0f, displayVector.z), displayVector);
         }
     }
+
+    // Draws Vector Value (Editor only)
+#if UNITY_EDITOR
+    private void DrawVectorLabel(Vector3 position, Vector3 value)
+    {
+        Vector3 labelOffset = Vector3.up * 0.2f;
+
+        string label =
+            $"[ {value.x:F2}\n" +
+            $"  {value.y:F2}\n" +
+            $"  {value.z:F2} ]";
+
+        Handles.Label(position + labelOffset, label);
+    }
+#endif
 
     // Returns value of vector
     public Vector3 Value
