@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VectorSubtractionVisualiser : VectorOperationVisualiserBase
@@ -16,7 +17,8 @@ public class VectorSubtractionVisualiser : VectorOperationVisualiserBase
         if (showNegativeBOnA)
         {
             Gizmos.color = vectorB.displayColour;
-            Gizmos.DrawLine(a, a - b);
+            UnityEditor.Handles.color = vectorB.displayColour;
+            UnityEditor.Handles.DrawDottedLine(a, a - b, 5f);
             Gizmos.DrawSphere(a - b, resultSphereRadius * 0.5f);
         }
     }

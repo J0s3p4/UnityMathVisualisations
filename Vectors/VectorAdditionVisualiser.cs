@@ -16,14 +16,16 @@ public class VectorAdditionVisualiser : VectorOperationVisualiserBase
         if (showHeadToTailAOnB)
         {
             Gizmos.color = vectorA.displayColour;
-            Gizmos.DrawLine(b, b + a);
+            UnityEditor.Handles.color = vectorA.displayColour;
+            UnityEditor.Handles.DrawDottedLine(b, b + a, 5f);
             Gizmos.DrawSphere(b + a, resultSphereRadius * 0.5f);
         }
 
         if (showHeadToTailBOnA)
         {
             Gizmos.color = vectorB.displayColour;
-            Gizmos.DrawLine(a, a + b);
+            UnityEditor.Handles.color = vectorB.displayColour;
+            UnityEditor.Handles.DrawDottedLine(a, a + b, 5f);
             Gizmos.DrawSphere(a + b, resultSphereRadius * 0.5f);
         }
     }

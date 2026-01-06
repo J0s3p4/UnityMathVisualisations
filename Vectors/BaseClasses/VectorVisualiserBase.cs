@@ -32,17 +32,17 @@ public abstract class VectorVisualiserBase : VisualiserBase
     {
         Color faint = color;
         faint.a = 0.2f;
-        Gizmos.color = faint;
-        Gizmos.DrawLine(new Vector3(pos.x, 0, 0), pos);
-        Gizmos.DrawLine(new Vector3(0, pos.y, 0), pos);
-        Gizmos.DrawLine(new Vector3(0, 0, pos.z), pos);
+        UnityEditor.Handles.color = faint;
+        UnityEditor.Handles.DrawDottedLine(new Vector3(pos.x, 0, 0), pos, 5f);
+        UnityEditor.Handles.DrawDottedLine(new Vector3(0, pos.y, 0), pos, 5f);
+        UnityEditor.Handles.DrawDottedLine(new Vector3(0, 0, pos.z), pos, 5f);
     }
 
     // Draws a label on the vector
     private void DrawVectorLabel(Vector3 position, Vector3 value, string prefix)
     {
 #if UNITY_EDITOR
-        Vector3 labelOffset = Vector3.up * 0.2f;
+        Vector3 labelOffset = Vector3.up * 0.3f;
         string label = $"{prefix}\n[{value.x:F2}, {value.y:F2}, {value.z:F2}]";
         if (showMagnitude)
         {
