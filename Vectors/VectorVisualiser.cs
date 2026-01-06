@@ -7,6 +7,7 @@ public class VectorVisualiser : VisualiserBase
     public Vector3 vector = new Vector3(2, 1, 0);
 
     [Header("Options")]
+    public bool showValue;
     public bool normalised;
     public bool multiplyByT;
     public bool showAxisLines;
@@ -31,9 +32,12 @@ public class VectorVisualiser : VisualiserBase
         Gizmos.DrawLine(Vector3.zero, displayVector);
         Gizmos.DrawSphere(displayVector, resultSphereRadius);
 
+        if (showValue)
+        {
         #if UNITY_EDITOR
-        DrawVectorLabel(displayVector, displayVector);
+            DrawVectorLabel(displayVector, displayVector);
         #endif
+        }
 
         // Draw faint axis lines if enabled
         if (showAxisLines)
