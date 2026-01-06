@@ -3,7 +3,7 @@ using UnityEditor;
 
 public abstract class VectorVisualiserBase : VisualiserBase
 {
-    [Header("Visual Settings")]
+    [Header("Settings")]
     public float resultSphereRadius = 0.1f;
     public bool showValue = true;
     public bool showAxisLines = false;

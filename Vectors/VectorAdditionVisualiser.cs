@@ -1,61 +1,18 @@
-using UnityEditor;
 using UnityEngine;
 
-public class VectorAdditionVisualiser : VisualiserBase
+public class VectorAdditionVisualiser : VectorOperationVisualiserBase
 {
-    [Header("Input Vectors")]
-    public VectorVisualiser vectorA;
-    public VectorVisualiser vectorB;
-
-    [Header("Options")]
-    public bool showValue;
-    public bool showAxisLines;
+    [Header("Addition Specifics")]
     public bool showHeadToTailAOnB;
     public bool showHeadToTailBOnA;
-    public Color displayColour = Color.green;
-    public float resultSphereRadius = 0.1f;
 
-    protected override void Draw()
+    protected override Vector3 PerformOperation(Vector3 a, Vector3 b) => a + b;
+
+    protected override string GetOperationName() => "A + B";
+
+    protected override void DrawExtraVisuals(Vector3 a, Vector3 b, Vector3 result)
     {
-        if (vectorA == null || vectorB == null)
-            return;
-
-        Vector3 a = vectorA.Value;
-        Vector3 b = vectorB.Value;
-
-        Vector3 sum = a + b;
-
-        //Draw Vector
-        Gizmos.color = displayColour;
-        Gizmos.DrawLine(Vector3.zero, sum);
-        Gizmos.DrawSphere(sum, resultSphereRadius);
-
-        if (showValue)
-        {
-        #if UNITY_EDITOR
-            DrawVectorLabel(sum, sum);
-        #endif
-        }
-
-        // Draw faint axis lines if enabled
-        if (showAxisLines)
-        {
-            // Faint version of the display colour
-            Color faint = displayColour;
-            faint.a = 0.2f; // Opacity
-            Gizmos.color = faint;
-
-            // X component line 
-            Gizmos.DrawLine(new Vector3(sum.x, 0f, 0f), sum);
-
-            // Y component line 
-            Gizmos.DrawLine(new Vector3(0f, sum.y, 0f), sum);
-
-            // Z component line 
-            Gizmos.DrawLine(new Vector3(0f, 0f, sum.z), sum);
-        }
-
-        // if show Head to tail
+        // Unique "Head to Tail" visuals for addition
         if (showHeadToTailAOnB)
         {
             Gizmos.color = vectorA.displayColour;
@@ -70,19 +27,4 @@ public class VectorAdditionVisualiser : VisualiserBase
             Gizmos.DrawSphere(a + b, resultSphereRadius * 0.5f);
         }
     }
-
-    // Draws Vector Value (Editor only)
-#if UNITY_EDITOR
-    private void DrawVectorLabel(Vector3 position, Vector3 value)
-    {
-        Vector3 labelOffset = Vector3.up * 0.2f;
-
-        string label =
-            $"[ {value.x:F2}\n" +
-            $"  {value.y:F2}\n" +
-            $"  {value.z:F2} ]";
-
-        Handles.Label(position + labelOffset, label);
-    }
-#endif
 }
