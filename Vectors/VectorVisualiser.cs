@@ -33,7 +33,7 @@ public class VectorVisualiser : VisualiserBase
         // Draw faint axis lines if enabled
         if (showAxisLines)
         {
-            // Make a faint version of the display colour
+            // Faint version of the display colour
             Color faint = displayColour;
             faint.a = 0.2f; // Opacity
             Gizmos.color = faint;
@@ -49,5 +49,21 @@ public class VectorVisualiser : VisualiserBase
         }
     }
 
+    // Returns value of vector
+    public Vector3 Value
+    {
+        get
+        {
+            Vector3 v = vector;
+
+            if (normalised)
+                v = v.normalized;
+
+            if (multiplyByT)
+                v *= t;
+
+            return v;
+        }
+    }
 
 }
