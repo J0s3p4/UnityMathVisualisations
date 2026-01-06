@@ -10,6 +10,8 @@ public class VectorAdditionVisualiser : VisualiserBase
     [Header("Options")]
     public bool showValue;
     public bool showAxisLines;
+    public bool showHeadToTailAOnB;
+    public bool showHeadToTailBOnA;
     public Color displayColour = Color.green;
     public float resultSphereRadius = 0.1f;
 
@@ -51,6 +53,21 @@ public class VectorAdditionVisualiser : VisualiserBase
 
             // Z component line 
             Gizmos.DrawLine(new Vector3(0f, 0f, sum.z), sum);
+        }
+
+        // if show Head to tail
+        if (showHeadToTailAOnB)
+        {
+            Gizmos.color = vectorA.displayColour;
+            Gizmos.DrawLine(b, b + a);
+            Gizmos.DrawSphere(b + a, resultSphereRadius * 0.5f);
+        }
+
+        if (showHeadToTailBOnA)
+        {
+            Gizmos.color = vectorB.displayColour;
+            Gizmos.DrawLine(a, a + b);
+            Gizmos.DrawSphere(a + b, resultSphereRadius * 0.5f);
         }
     }
 
