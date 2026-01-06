@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class VectorAdditionVisualiser : VectorOperationVisualiserBase
 {
-    [Header("Addition Specifics")]
+    [Header("Addition Settings")]
     public bool showHeadToTailAOnB;
     public bool showHeadToTailBOnA;
 
