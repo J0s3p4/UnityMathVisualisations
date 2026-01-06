@@ -11,8 +11,9 @@ public class VectorDotProductVisualiser : VectorOperationVisualiserBase
         // Calculate dot product
         dot = Vector3.Dot(a, b);
         
-        // Tell the base not to draw the label.
+        // Tell the base not to draw the label or axis lines
         showValue = false;
+        showAxisLines = false;
         // Return zero, no vector
         return Vector3.zero;
     }
