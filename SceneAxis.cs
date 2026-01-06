@@ -6,6 +6,7 @@ public class SceneAxis : MonoBehaviour
     public float axisLength = 5f;      // Length in each direction
     public bool extendNegative = true; // Extend axes in negative directions
     public bool showAxes = true;       // Toggle axes on/off
+    public Color axisColor = Color.white;
 
     private void OnDrawGizmos()
     {
@@ -19,7 +20,10 @@ public class SceneAxis : MonoBehaviour
 
     private void DrawAxis(Vector3 direction, float length)
     {
-        Gizmos.color = Color.white;
+        Color faint = axisColor;
+        faint.a = 0.2f;
+        Gizmos.color = faint;
+
 
         // Positive direction
         Gizmos.DrawLine(Vector3.zero, direction * length);
