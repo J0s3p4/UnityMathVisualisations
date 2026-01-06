@@ -9,7 +9,7 @@ public class VectorVisualiser : VisualiserBase
     public bool multiplyByT;
     public bool showAxisLines;
     public Color displayColour = Color.red;
-
+    public float resultSphereRadius = 0.1f;
 
     protected override void Draw()
     {
@@ -27,7 +27,7 @@ public class VectorVisualiser : VisualiserBase
         // Draw the main vector
         Gizmos.color = displayColour;
         Gizmos.DrawLine(Vector3.zero, displayVector);
-        Gizmos.DrawSphere(displayVector, 0.1f);
+        Gizmos.DrawSphere(displayVector, resultSphereRadius);
 
 
         // Draw faint axis lines if enabled
