@@ -7,6 +7,7 @@ public class VectorProjectionVisualiser : VectorOperationVisualiserBase
 {
 
     // Draw Projected vectors, useful for the rule: A.B = |A||projB(onA)| = |B||projA(onB)|
+    // Inspired by: https://youtu.be/LyGKycYT2v0?t=87
 
     public enum ProjectionMode
     {
