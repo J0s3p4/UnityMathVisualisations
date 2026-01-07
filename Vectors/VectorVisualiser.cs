@@ -6,7 +6,8 @@ public class VectorVisualiser : VectorVisualiserBase
 
     // Adds variables under "settings header in base"
     public bool normalised;
-    public bool multiplyByT;
+    public bool multiplyByT = false;
+   // public bool drawExtendedLines = false;
     public bool isVectorA;
     public Color displayColour = Color.red;
 
@@ -18,6 +19,7 @@ public class VectorVisualiser : VectorVisualiserBase
 
         // Draws vector using visualiser base
         DrawVector(Vector3.zero, displayVector, displayColour, label);
+
     }
 
     public Vector3 Value

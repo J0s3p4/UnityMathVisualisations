@@ -4,6 +4,9 @@ using UnityEngine;
 public class VectorDotProductVisualiser : VectorOperationVisualiserBase
 {
     private float dot;
+    [Header("DotProduct Settings")]
+    public bool drawProjectedAOnB;
+    public bool drawProjectedBOnA;
 
     protected override Vector3 PerformOperation(Vector3 a, Vector3 b)
     {
@@ -15,8 +18,13 @@ public class VectorDotProductVisualiser : VectorOperationVisualiserBase
         showValue = false;
         showAxisLines = false;
         resultSphereRadius = 0;
+
+
+
         // Return zero, no vector
         return Vector3.zero;
+
+        // Draw Projected vectors for rule A.B = |A||projB(onA)| = |B||projA(onB)|
     }
 
     protected override string GetOperationName() => "A . B";
