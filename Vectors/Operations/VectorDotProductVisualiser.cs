@@ -14,6 +14,7 @@ public class VectorDotProductVisualiser : VectorOperationVisualiserBase
         
         // Tell the base not to draw the label, axis lines or result sphere
         showValue = false;
+        showMagnitude = false;
         showAxisLines = false;
         resultSphereRadius = 0;
 
