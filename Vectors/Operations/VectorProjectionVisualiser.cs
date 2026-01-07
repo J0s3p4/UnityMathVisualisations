@@ -5,7 +5,8 @@ public class VectorProjectionVisualiser : VectorOperationVisualiserBase
 {
 
 
-  
+    // Draw Projected vectors, useful for the rule: A.B = |A||projB(onA)| = |B||projA(onB)|
+
     public enum ProjectionMode
     {
         drawProjectedAOnB,
@@ -15,17 +16,18 @@ public class VectorProjectionVisualiser : VectorOperationVisualiserBase
     [Header("Projection Settings")]
     public ProjectionMode vectorToProject;
 
-    // Draw Projected vectors for rule A.B = |A||projB(onA)| = |B||projA(onB)|
-
+    
     protected override Vector3 PerformOperation(Vector3 a, Vector3 b)
     {
 
         switch (vectorToProject)
         {
             case ProjectionMode.drawProjectedAOnB:
+                operationColor = vectorA.displayColour;
                 return Vector3.Project(a, b);
 
             case ProjectionMode.drawProjectedBOnA:
+                operationColor = vectorB.displayColour;
                 return Vector3.Project(b, a);
         }
 
