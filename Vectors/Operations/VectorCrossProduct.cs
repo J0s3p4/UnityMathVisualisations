@@ -3,7 +3,17 @@ using UnityEditor;
 
 public class VectorCrossProductVisualiser : VectorOperationVisualiserBase
 {
+    //ToDo: Display negative cross product values appropriatelt
+
+    // Cross products are non commutative
+    public enum CrossProductToCalculate
+    {
+        AXB,
+        BXA
+    }
+
     [Header("Cross Product Settings")]
+    public CrossProductToCalculate crossProductToCalculate;
     public bool showArea = true;
     public bool showAreaLabel = true;
     public Color areaColor = new Color(1, 1, 0, 0.2f); // Transparent Yellow
@@ -12,10 +22,17 @@ public class VectorCrossProductVisualiser : VectorOperationVisualiserBase
     {
 
         // The cross product results in a vector perpendicular to both A and B
-        return Vector3.Cross(a, b);
+        return crossProductToCalculate == CrossProductToCalculate.AXB
+            ? Vector3.Cross(a, b)
+            : Vector3.Cross(b, a); 
     }
 
-    protected override string GetOperationName() => "A x B";
+    protected override string GetOperationName()
+    {
+        return crossProductToCalculate == CrossProductToCalculate.AXB
+            ? "A x B"
+            : "B x A";
+    } 
 
     protected override void DrawExtraVisuals(Vector3 a, Vector3 b, Vector3 result)
     {
