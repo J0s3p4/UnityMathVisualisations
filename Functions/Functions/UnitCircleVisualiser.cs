@@ -25,8 +25,8 @@ public class UnitCircleVisualiser : VisualiserBase
         // Sync time
         connectedGraph.t = t;
 
-        // Sync amplitude to circle radius only if it's a Sine wave
-        if (connectedGraph is SineWaveVisualiser)
+        // Sync amplitude to circle radius
+        if (connectedGraph is FunctionVisualiserBase)
         {
             connectedGraph.amplitude = radius;
         }
@@ -56,11 +56,19 @@ public class UnitCircleVisualiser : VisualiserBase
         Gizmos.color = vectorColor;
         Gizmos.DrawSphere(tip, 0.05f);
 
-        // Draw connector line to sine graph
-        if (showConnectorLine && connectedGraph is SineWaveVisualiser)
+        if (showConnectorLine && connectedGraph != null)
         {
+            float value = 0f;
+
+            if (connectedGraph is SineWaveVisualiser)
+                value = sinVal;
+            else if (connectedGraph is CosineVisualiser)
+                value = cosVal;
+            else
+                return;
+
             Vector3 graphPoint =
-                connectedGraph.transform.position + new Vector3(0f, sinVal * radius, 0f);
+                connectedGraph.transform.position + new Vector3(0f, value * radius, 0f);
 
             Handles.color = new Color(1f, 0f, 0f, 0.5f);
             Handles.DrawDottedLine(tip, graphPoint, 4f);
