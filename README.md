@@ -1,5 +1,5 @@
 # Unity Math Visualisations
-Attach scripts to empty game objects in scene.
+Attach scripts to empty GameObjects in scene.
 
 ## Global / Non-Exclusive
 - SceneAxis: Creates an axis in scene.
@@ -18,3 +18,11 @@ Attach scripts to empty game objects in scene.
 - VectorProjectionVisualiser: Takes a reference to Vector A and Vector B, and displays A projected on B or vice versa. Inspired by the visualisaton used in this video: https://youtu.be/LyGKycYT2v0?t=87
 
 - VectorCrossProductVisualiser: Takes a reference to Vector A and Vector B, calculates and displays their cross product and area (A x B or B x A).
+
+## Functions
+
+- SineWaveVisualiser: Displays a Sine wave in scene.
+
+- CosineWaveVisualiser: Displays a Cosine wave in scene.
+
+- UnitCircleVisualiser: Displays a unit circle in the scene. Takes a reference to a Sine or Cosine visualiser and draws a connector line between the circle and the graph. TEnabling Animate animates both the unit circle and the connected graph. Inspired by the visualisation used in this video: https://youtu.be/ZU-cIz8dvqU?t=426
