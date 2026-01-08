@@ -1,10 +1,10 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 public abstract class FunctionVisualiserBase : VisualiserBase
 {
     [Header("Graph Settings")]
-    public float range = 5f;
+    public float range = 10f;
     public int resolution = 100;
     public Color graphColour = Color.blue;
     public float amplitude = 1f;
@@ -12,23 +12,24 @@ public abstract class FunctionVisualiserBase : VisualiserBase
 
     protected override void Draw()
     {
-#if UNITY_EDITOR
-        Vector3[] points = new Vector3[resolution];
-        float step = (range * 2) / (resolution - 1);
 
-        for (int i = 0; i < resolution; i++)
-        {
-            float x = -range + (i * step);
+      #if UNITY_EDITOR
+            Vector3[] points = new Vector3[resolution];
+            float step = (range * 2) / (resolution - 1);
 
-            // Child class calculates y
-            float y = CalculateY(x);
+            for (int i = 0; i < resolution; i++)
+            {
+                float x = -range + (i * step);
 
-            points[i] = transform.position + new Vector3(x, y, 0);
-        }
+                // Child class calculates y
+                float y = CalculateY(x);
 
-        Handles.color = graphColour;
-        Handles.DrawPolyLine(points);
-#endif
+                points[i] = transform.position + new Vector3(x, y, 0);
+            }
+
+            Handles.color = graphColour;
+            Handles.DrawPolyLine(points);
+       #endif
     }
 
     // Child class calculates y
