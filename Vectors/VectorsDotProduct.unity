@@ -183,6 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 902776267}
   - component: {fileID: 902776266}
+  - component: {fileID: 902776268}
   m_Layer: 0
   m_Name: VectorDotProduct
   m_TagString: Untagged
@@ -225,6 +226,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &902776268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902776265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3056de6507e9aa34080a2c8b57848112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VectorAngleVisualiser
+  t: 0
+  resultSphereRadius: 0
+  showValue: 0
+  showMagnitude: 0
+  showAxisLines: 0
+  vectorA: {fileID: 864029266}
+  vectorB: {fileID: 929140030}
+  operationColor: {r: 0, g: 1, b: 0, a: 1}
+  angleColor: {r: 1, g: 1, b: 0, a: 0.2}
+  arcRadiusScale: 0.25
+  showAngleLabel: 1
 --- !u!1 &929140027
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +412,7 @@ MonoBehaviour:
   axisLength: 20
   extendNegative: 1
   showAxes: 1
+  showAxesLabels: 1
   axisColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1400742618
 Transform:
