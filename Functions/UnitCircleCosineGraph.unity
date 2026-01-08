@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7404e5db96709fe41b26d1679f568f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CosineVisualiser
-  t: 0.3372326
+  t: 0
   animate: 0
   speed: 0.1
   reverse: 0
@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579a35d10fdc1bd488c89c5755d0de99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitCircleVisualiser
-  t: 0.3372326
-  animate: 1
+  t: 0
+  animate: 0
   speed: 0.1
   reverse: 0
   pauseOnEnd: 0

@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579a35d10fdc1bd488c89c5755d0de99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnitCircleVisualiser
-  t: 0.07724648
-  animate: 1
+  t: 0
+  animate: 0
   speed: 0.1
   reverse: 0
   pauseOnEnd: 0
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43c5e50382ca32489cf627e3edba11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SineWaveVisualiser
-  t: 0.07724648
+  t: 0
   animate: 0
   speed: 0.5
   reverse: 0
