@@ -3,7 +3,14 @@ using UnityEditor;
 
 public class VectorAngleVisualiser : VectorOperationVisualiserBase
 {
+    // For switching between degrees and radians
+    public enum AngleUnit
+    {
+        Degrees,
+        Radians
+    }
     [Header("Angle Settings")]
+    public AngleUnit angleUnit = AngleUnit.Degrees;
     public Color angleColor = new Color(1, 1, 0, 0.2f); // Transparent Yellow
     public float arcRadiusScale = 0.5f;
     public bool showAngleLabel = true;
@@ -58,7 +65,24 @@ public class VectorAngleVisualiser : VectorOperationVisualiserBase
             Vector3 midDir = Quaternion.AngleAxis(angle * 0.5f, normal) * aDir;
             Vector3 labelPos = midDir * radius;
 
-            Handles.Label(labelPos, $"{angle:F1}°");
+
+            float displayValue;
+            string unitSuffix;
+
+            switch (angleUnit)
+            {
+                case AngleUnit.Radians:
+                    displayValue = angle * Mathf.Deg2Rad;
+                    unitSuffix = " rad";
+                    break;
+
+                default:
+                    displayValue = angle;
+                    unitSuffix = "°";
+                    break;
+            }
+
+            Handles.Label(labelPos, $"{displayValue:F2}{unitSuffix}");
         }
 #endif
     }
