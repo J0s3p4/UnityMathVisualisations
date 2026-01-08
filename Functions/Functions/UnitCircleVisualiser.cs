@@ -58,7 +58,7 @@ public class UnitCircleVisualiser : VisualiserBase
 
         if (showConnectorLine && connectedGraph != null)
         {
-            float value = 0f;
+            float value;
 
             if (connectedGraph is SineWaveVisualiser)
                 value = sinVal;
@@ -67,13 +67,19 @@ public class UnitCircleVisualiser : VisualiserBase
             else
                 return;
 
-            Vector3 graphPoint =
-                connectedGraph.transform.position + new Vector3(0f, value * radius, 0f);
+            Quaternion graphRotation =
+                Quaternion.Euler(0, 0, connectedGraph.zRotation);
 
-            Handles.color = new Color(1f, 0f, 0f, 0.5f);
+            Vector3 localProjection = new Vector3(0f, value * radius, 0f);
+            Vector3 rotatedProjection = graphRotation * localProjection;
+
+            Vector3 graphPoint =
+                connectedGraph.transform.position + rotatedProjection;
+
+            Handles.color = Color.green;
             Handles.DrawDottedLine(tip, graphPoint, 4f);
 
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.green;
             Gizmos.DrawSphere(graphPoint, 0.05f);
         }
 #endif
