@@ -4,7 +4,6 @@ using UnityEngine;
 public class UnitCircleVisualiser : VisualiserBase
 {
     [Header("Connected Graph")]
-    [Tooltip("Drag your Sine Wave game object here")]
     public FunctionVisualiserBase connectedGraph;
 
     [Header("Settings")]
