@@ -168,7 +168,7 @@ MonoBehaviour:
   showValue: 1
   showMagnitude: 1
   showAxisLines: 0
-  vector: {x: 3.52, y: 1, z: 1}
+  vector: {x: 4, y: 1, z: 1}
   normalised: 0
   multiplyByT: 0
   isVectorA: 1
@@ -246,6 +246,7 @@ MonoBehaviour:
   vectorA: {fileID: 864029266}
   vectorB: {fileID: 929140030}
   operationColor: {r: 0, g: 1, b: 0, a: 1}
+  angleUnit: 0
   angleColor: {r: 1, g: 1, b: 0, a: 0.2}
   arcRadiusScale: 0.25
   showAngleLabel: 1
@@ -340,7 +341,7 @@ MonoBehaviour:
   showAxisLines: 0
   vectorA: {fileID: 864029266}
   vectorB: {fileID: 929140030}
-  operationColor: {r: 0.19182372, g: 0.19182372, b: 1, a: 1}
+  operationColor: {r: 0.19182372, g: 0.19182372, b: 1, a: 0.3}
   vectorToProject: 1
   drawLineToProjection: 1
 --- !u!114 &1015012962
@@ -362,7 +363,7 @@ MonoBehaviour:
   showAxisLines: 0
   vectorA: {fileID: 864029266}
   vectorB: {fileID: 929140030}
-  operationColor: {r: 1, g: 0, b: 0, a: 1}
+  operationColor: {r: 1, g: 0, b: 0, a: 0.3}
   vectorToProject: 0
   drawLineToProjection: 1
 --- !u!4 &1015012963
@@ -374,7 +375,7 @@ Transform:
   m_GameObject: {fileID: 1015012960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.92777, y: -4.49729, z: 8.27958}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
