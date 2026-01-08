@@ -25,16 +25,22 @@ public class VectorProjectionVisualiser : VectorOperationVisualiserBase
         switch (vectorToProject)
         {
             case ProjectionMode.drawProjectedAOnB:
-                operationColor = vectorA.displayColour;
+                operationColor = MakeTransparent(vectorA.displayColour, 0.3f);
                 return Vector3.Project(a, b);
 
             case ProjectionMode.drawProjectedBOnA:
-                operationColor = vectorB.displayColour;
+                operationColor = MakeTransparent(vectorB.displayColour, 0.3f);
                 return Vector3.Project(b, a);
         }
 
 
         return Vector3.zero;
+    }
+
+    // Could be used elsewhere
+    Color MakeTransparent(Color c, float alpha)
+    {
+        return new Color(c.r, c.g, c.b, alpha);
     }
 
     protected override string GetOperationName()
