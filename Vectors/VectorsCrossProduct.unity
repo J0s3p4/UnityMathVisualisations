@@ -164,6 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VectorVisualiser
   t: 1
+  animate: 0
+  speed: 0.1
+  reverse: 0
+  pauseOnEnd: 0
   resultSphereRadius: 0.1
   showValue: 1
   showMagnitude: 1
@@ -218,6 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VectorVisualiser
   t: 1
+  animate: 0
+  speed: 0.1
+  reverse: 0
+  pauseOnEnd: 0
   resultSphereRadius: 0.1
   showValue: 1
   showMagnitude: 1
@@ -259,6 +267,7 @@ MonoBehaviour:
   axisLength: 20
   extendNegative: 1
   showAxes: 1
+  showAxesLabels: 1
   axisColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1400742618
 Transform:
@@ -302,7 +311,7 @@ Transform:
   m_GameObject: {fileID: 1907343776}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63926, y: 1.10259, z: 7.95678}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -321,6 +330,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VectorCrossProductVisualiser
   t: 0
+  animate: 0
+  speed: 0.1
+  reverse: 0
+  pauseOnEnd: 0
   resultSphereRadius: 0.1
   showValue: 1
   showMagnitude: 1
@@ -344,7 +357,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f645bf0c7a44414a8a02407240716b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VectorCrossProductVisualiser
-  t: 0
+  t: 0.119907185
+  animate: 0
+  speed: 0.1
+  reverse: 0
+  pauseOnEnd: 0
   resultSphereRadius: 0.1
   showValue: 1
   showMagnitude: 1
