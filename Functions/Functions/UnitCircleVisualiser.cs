@@ -19,16 +19,16 @@ public class UnitCircleVisualiser : VisualiserBase
 
     private void SyncGraph()
     {
-        if (connectedGraph != null)
-        {
-            // Sync time/phase
-            connectedGraph.t = t;
+        if (connectedGraph == null)
+            return;
 
-            // Sync amplitude to circle radius only if it's a Sine wave
-            if (connectedGraph is SineWaveVisualiser)
-            {
-                connectedGraph.amplitude = radius;
-            }
+        // Sync time
+        connectedGraph.t = t;
+
+        // Sync amplitude to circle radius only if it's a Sine wave
+        if (connectedGraph is SineWaveVisualiser)
+        {
+            connectedGraph.amplitude = radius;
         }
     }
 
@@ -39,30 +39,30 @@ public class UnitCircleVisualiser : VisualiserBase
 
         Vector3 center = transform.position;
 
-        // Draw the Circle 
+        // Draw the circle
         Handles.color = circleColor;
         Handles.DrawWireDisc(center, Vector3.forward, radius);
 
         // Calculate current state
-        float angle = t * Mathf.PI * 2;
+        float angle = t * Mathf.PI * 2f;
         float cosVal = Mathf.Cos(angle);
         float sinVal = Mathf.Sin(angle);
 
-        Vector3 tip = center + new Vector3(cosVal * radius, sinVal * radius, 0);
+        Vector3 tip = center + new Vector3(cosVal * radius, sinVal * radius, 0f);
 
-        // Draw Main Rotating Vector
+        // Draw main rotating vector
         Handles.color = vectorColor;
         Handles.DrawLine(center, tip);
         Gizmos.color = vectorColor;
         Gizmos.DrawSphere(tip, 0.05f);
 
-        // Draw Connector Line to Sine Graph
-        if (showConnectorLine && connectedGraph != null && connectedGraph is SineWaveVisualiser)
+        // Draw connector line to sine graph
+        if (showConnectorLine && connectedGraph is SineWaveVisualiser)
         {
-            // The point on the graph where x = 0 (the center of the graph object)
-            Vector3 graphPoint = connectedGraph.transform.position + new Vector3(0, sinVal * radius, 0);
+            Vector3 graphPoint =
+                connectedGraph.transform.position + new Vector3(0f, sinVal * radius, 0f);
 
-            Handles.color = new Color(1, 0, 0, 0.5f); // Semi-transparent red
+            Handles.color = new Color(1f, 0f, 0f, 0.5f);
             Handles.DrawDottedLine(tip, graphPoint, 4f);
 
             Gizmos.color = Color.red;
