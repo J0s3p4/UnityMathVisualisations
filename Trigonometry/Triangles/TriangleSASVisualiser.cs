@@ -4,11 +4,11 @@ using UnityEngine;
 public class TriangleSASVisualiser : TriangleVisualiserBase
 {
 
-    public float sideA;
-    public float sideB;
+    public float sideA; // p1 > p2 side A
+    public float sideB; // p3 > p1 side B
     [Range(0, 360)] public float angle;
 
-    // p1>p2 side A, p2>p3 side B, p3>p1 side C
+    // p1 > p2 side A, p3 > p1 side B,  p2 > p3 side C
 
     protected override void CalculateVertices()
     {
@@ -17,7 +17,6 @@ public class TriangleSASVisualiser : TriangleVisualiserBase
 
         p2 = new Vector3(sideA, 0, 0); // Draw side A along x-axis
 
-        // v3 is the end of Side B, calculated using the angle
 
         // ToDo: take radians or degrees
         float rad = angle * Mathf.Deg2Rad; // Convert degrees to radians
