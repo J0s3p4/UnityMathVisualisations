@@ -6,12 +6,12 @@ public abstract class TriangleVisualiserBase : VisualiserBase
 
     [Header("Triangle Settings")]
     public bool drawAngles = true;
-   // public bool drawCDotted;
+    public bool drawCDotted;
     public Color triangleColor = Color.yellow;
     public Color angleColor = Color.white;
 
     protected Vector3 p1, p2, p3;
-    
+
 
     protected override void Draw()
     {
@@ -21,8 +21,14 @@ public abstract class TriangleVisualiserBase : VisualiserBase
         Gizmos.color = triangleColor;
         Gizmos.DrawLine(p1, p2); //A p1 > p2
         Gizmos.DrawLine(p3, p1); //B p3 > p1
+        if (drawCDotted)
+        {
+            UnityEditor.Handles.color = triangleColor;
+            UnityEditor.Handles.DrawDottedLine(p2, p3, 5f);
+        }
+        else { 
         Gizmos.DrawLine(p2, p3); //C p2 > p3
-
+         }
 
         # if UNITY_EDITOR
         // Label Lines
