@@ -29,3 +29,6 @@ Attach scripts to empty GameObjects in scene.
 - UnitCircleVisualiser: Displays a unit circle in the scene. Takes a reference to a Sine or Cosine visualiser and draws a connector line between the circle and the graph. TEnabling Animate animates both the unit circle and the connected graph. Inspired by the visualisation used in this video: https://youtu.be/ZU-cIz8dvqU?t=426
 
 ### Triangles
+- TriangleSASVisualiser: Takes in values for Side A, Side B and an Angle and creates a triangle in scene based on these values.
+
+- TriangleSSSVisualiser: Takes in values for sides A, B and C, and creates a triangle in scene based on these values.
