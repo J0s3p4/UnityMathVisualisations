@@ -7,7 +7,7 @@ public class UnitCircleVisualiser : VisualiserBase
     public FunctionVisualiserBase connectedGraph;
 
     [Header("Settings")]
-    public float radius = 2f;
+    public float radius = 1f;
     public Color circleColor = new Color(1, 1, 1, 0.2f);
     public Color vectorColor = Color.yellow;
     public bool showConnectorLine = true;
