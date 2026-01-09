@@ -19,7 +19,7 @@ Attach scripts to empty GameObjects in scene.
 
 - VectorCrossProductVisualiser: Takes a reference to Vector A and Vector B, calculates and displays their cross product and area (A x B or B x A).
 
-## Functions
+## Trigonometry
 
 - SineWaveVisualiser: Displays a Sine wave in scene.
 
