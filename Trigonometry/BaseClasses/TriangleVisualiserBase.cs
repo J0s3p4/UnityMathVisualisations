@@ -6,8 +6,9 @@ public abstract class TriangleVisualiserBase : VisualiserBase
 
     [Header("Triangle Settings")]
     public bool drawAngles = true;
+   // public bool drawCDotted;
     public Color triangleColor = Color.yellow;
-    // Draw C dotted?
+    public Color angleColor = Color.white;
 
     protected Vector3 p1, p2, p3;
     
@@ -56,7 +57,7 @@ public abstract class TriangleVisualiserBase : VisualiserBase
                 p2,
                 p3,
                 radius,
-                triangleColor,
+                angleColor,
                 $"{Vector3.Angle(p2 - p1, p3 - p1):F1}°"
             );
 
@@ -66,7 +67,7 @@ public abstract class TriangleVisualiserBase : VisualiserBase
                 p1,
                 p3,
                 radius,
-                triangleColor,
+                angleColor,
                 $"{Vector3.Angle(p1 - p2, p3 - p2):F1}°"
             );
 
@@ -76,7 +77,7 @@ public abstract class TriangleVisualiserBase : VisualiserBase
                 p1,
                 p2,
                 radius,
-                triangleColor,
+                angleColor,
                 $"{Vector3.Angle(p1 - p3, p2 - p3):F1}°"
             );
 #endif
