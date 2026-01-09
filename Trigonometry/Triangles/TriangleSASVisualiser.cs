@@ -4,11 +4,11 @@ using UnityEngine;
 public class TriangleSASVisualiser : TriangleVisualiserBase
 {
 
-    public float sideA; // p1 > p2 side A
-    public float sideB; // p3 > p1 side B
+    public float sideA; // p1 -> p2 side A
+    public float sideB; // p3 -> p1 side B
     [Range(0, 360)] public float angle;
 
-    // p1 > p2 side A, p3 > p1 side B,  p2 > p3 side C
+    // p1 -> p2 side A, p3 -> p1 side B,  p2 -> p3 side C
 
     protected override void CalculateVertices()
     {

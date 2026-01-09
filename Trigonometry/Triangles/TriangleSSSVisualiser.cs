@@ -3,9 +3,9 @@ using UnityEngine;
 public class TriangleSSSVisualiser : TriangleVisualiserBase
 {
     [Header("Side Lengths")]
-    public float sideA; // p1 > p2 side A
-    public float sideB; // p2 > p3 side B
-    public float sideC; // p3 > p1 side C
+    public float sideA; // p1 -> p2 side A
+    public float sideB; // p2 -> p3 side B
+    public float sideC; // p3 -> p1 side C
 
     protected override void CalculateVertices()
     {
@@ -23,7 +23,7 @@ public class TriangleSSSVisualiser : TriangleVisualiserBase
         p2 = new Vector3(sideA, 0, 0); 
 
         //  Use Law of Cosines to find Angle alpha at p1
-        float cosAlpha = (sideB * sideB + sideC * sideC - sideA * sideA) / (2 * sideB * sideC);
+        float cosAlpha = (sideA * sideA + sideB * sideB - sideC * sideC) / (2 * sideA * sideB);
 
         // Get the angle in Radians (Clamp between -1 and 1)
         float alphaRadians = Mathf.Acos(Mathf.Clamp(cosAlpha, -1f, 1f));
