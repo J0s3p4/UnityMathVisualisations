@@ -32,3 +32,5 @@ Get Started: download and move folders into a Unity 3D project, then attach scri
 - TriangleSASVisualiser: Takes in values for Side A, Side B and an Angle and creates a triangle in scene based on these values.
 
 - TriangleSSSVisualiser: Takes in values for sides A, B and C, and creates a triangle in scene based on these values.
+
+- TriangleASAVisualiser: Takes in values for angle AB, angle AC and Side C, and creates a triangle in scene based on these values.
