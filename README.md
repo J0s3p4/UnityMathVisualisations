@@ -1,5 +1,9 @@
 # Unity Math Visualisations
-Get Started: download and move folders into a Unity 3D project, then attach scripts to empty GameObjects in scene or open the demo scenes.
+
+## Get Started
+1. Download the repository
+2. Copy the folders into a Unity 3D project
+3. Open a demo scene or attach scripts to empty GameObjects
 
 ## Global / Non-Exclusive
 - SceneAxis: Creates an axis in scene.
