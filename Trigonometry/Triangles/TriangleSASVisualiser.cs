@@ -21,7 +21,7 @@ public class TriangleSASVisualiser : TriangleVisualiserBase
         // ToDo: take radians or degrees
         float rad = angle * Mathf.Deg2Rad; // Convert degrees to radians
 
-        // Polar to Cartesian conversion
+        // Polar to Cartesian conversion to find p3
         p3 = new Vector3(
             Mathf.Cos(rad) * sideB,
             Mathf.Sin(rad) * sideB,

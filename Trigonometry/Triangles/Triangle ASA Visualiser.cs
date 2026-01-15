@@ -29,7 +29,7 @@ public class TriangleASAVisualiser : TriangleVisualiserBase
         p1 = Vector3.zero;
         p2 = new Vector3(sideC, 0f, 0f);
 
-        // Build p3 from p1
+        // Polar to Cartesian conversion to find p3
         p3 = new Vector3(
             Mathf.Cos(radA) * sideB,
             Mathf.Sin(radA) * sideB,
