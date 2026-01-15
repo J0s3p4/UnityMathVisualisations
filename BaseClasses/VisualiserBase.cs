@@ -18,7 +18,7 @@ public abstract class VisualiserBase : MonoBehaviour
     {
         if (animate)
         {
-            // Determine direction: 1 for forward, -1 for reverse
+            // 1 for forward, -1 for reverse
             float direction = reverse ? -1f : 1f;
 
             // Increment/Decrement t
