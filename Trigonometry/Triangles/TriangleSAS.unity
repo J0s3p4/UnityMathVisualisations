@@ -170,11 +170,12 @@ MonoBehaviour:
   pauseOnEnd: 0
   drawAngles: 1
   drawCDotted: 1
+  drawBDotted: 0
   triangleColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   angleColor: {r: 1, g: 1, b: 1, a: 1}
   sideA: 0.5
   sideB: 0.45
-  angle: 62
+  angle: 46
 --- !u!1 &1400742616
 GameObject:
   m_ObjectHideFlags: 0
