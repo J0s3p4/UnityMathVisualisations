@@ -7,6 +7,7 @@ public abstract class TriangleVisualiserBase : VisualiserBase
     [Header("Triangle Settings")]
     public bool drawAngles = true;
     public bool drawCDotted;
+    public bool drawBDotted;
     public Color triangleColor = Color.yellow;
     public Color angleColor = Color.white;
 
@@ -19,16 +20,35 @@ public abstract class TriangleVisualiserBase : VisualiserBase
 
         //Draw Lines
         Gizmos.color = triangleColor;
-        Gizmos.DrawLine(p1, p2); //A p1 -> p2
-        Gizmos.DrawLine(p3, p1); //B p3 -> p1
+
+        //A p1 -> p2
+        Gizmos.DrawLine(p1, p2); 
+
+        //B p3 -> p1
+        if (drawBDotted)
+        {
+#if UNITY_EDITOR
+            UnityEditor.Handles.color = triangleColor;
+            UnityEditor.Handles.DrawDottedLine(p3, p1, 5f);
+#endif
+        }
+        else
+        {
+            Gizmos.DrawLine(p3, p1); 
+        }
+
+        //C p2 -> p3
         if (drawCDotted)
         {
+#if UNITY_EDITOR
             UnityEditor.Handles.color = triangleColor;
             UnityEditor.Handles.DrawDottedLine(p2, p3, 5f);
+#endif
         }
-        else { 
-        Gizmos.DrawLine(p2, p3); //C p2 -> p3
-         }
+        else
+        {
+            Gizmos.DrawLine(p2, p3); 
+        }
 
         # if UNITY_EDITOR
         // Label Lines
