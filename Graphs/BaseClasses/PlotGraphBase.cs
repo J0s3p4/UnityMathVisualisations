@@ -13,8 +13,6 @@ public class PlotGraphBase : VisualiserBase
     public float pointSphereRadius = 0.1f;
     public Color displayColour = Color.red;
 
-    private Vector3 previousPoint;
-
     protected override void Draw()
     {
         if (pointArray != null) // If point array populated
@@ -27,19 +25,9 @@ public class PlotGraphBase : VisualiserBase
                     Gizmos.DrawSphere(pointArray[i], pointSphereRadius);
                 }
 
-                if (drawLines)
+                if (drawLines && i != 0)
                 {
-                    if (i == 0)
-                    {
-                        previousPoint = pointArray[i]; // Previous point not set for i==0, set current as previous
-
-                    }
-                    else
-                    {
-                        // Draw line from previous to current and then set current as previous
-                        Gizmos.DrawLine(previousPoint, pointArray[i]);
-                        previousPoint = pointArray[i];
-                    }
+                        Gizmos.DrawLine(pointArray[i - 1], pointArray[i]);
                 }
             }
         }
