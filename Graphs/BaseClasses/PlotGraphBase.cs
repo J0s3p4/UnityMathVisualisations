@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class PlotGraphBase : MonoBehaviour
+public class PlotGraphBase : VisualiserBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+
+    protected override void Draw()
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
