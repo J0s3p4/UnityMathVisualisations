@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlotGraphBase : VisualiserBase
 {
-
+    [Header("Point Array")]
     public Vector3[] pointArray;
 
+    [Header("Graph Settings")]
     public bool drawPoints = true;
     public bool drawLines = true;
     public float pointSphereRadius = 0.1f;
@@ -21,20 +22,25 @@ public class PlotGraphBase : VisualiserBase
             for (int i = 0; i < pointArray.Length; i++) // Plot graph
             {
                 Gizmos.color = displayColour;
-                Gizmos.DrawSphere(pointArray[i], pointSphereRadius);
-
-                if (i == 0)
+                if (drawPoints)
                 {
-                    previousPoint = pointArray[i]; // Previous point not set, set current as previous
-
-                }
-                else
-                {
-                    //draw line from previous to current and then set current as previous
-                    Gizmos.DrawLine(previousPoint, pointArray[i]);
-                    previousPoint = pointArray[i];
+                    Gizmos.DrawSphere(pointArray[i], pointSphereRadius);
                 }
 
+                if (drawLines)
+                {
+                    if (i == 0)
+                    {
+                        previousPoint = pointArray[i]; // Previous point not set for i==0, set current as previous
+
+                    }
+                    else
+                    {
+                        // Draw line from previous to current and then set current as previous
+                        Gizmos.DrawLine(previousPoint, pointArray[i]);
+                        previousPoint = pointArray[i];
+                    }
+                }
             }
         }
 
