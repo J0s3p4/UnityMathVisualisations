@@ -38,3 +38,5 @@
 - TriangleSSSVisualiser: Takes in values for sides A, B and C, and creates a triangle in scene based on these values.
 
 - TriangleASAVisualiser: Takes in values for angle AB, angle AC and Side C, and creates a triangle in scene based on these values.
+
+## Graphs
